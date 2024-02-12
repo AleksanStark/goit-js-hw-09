@@ -6,22 +6,24 @@ form.elements.email.value = localStorage.getItem(localStorageKey) || '';
 form.elements.message.value = localStorage.getItem(localStorageKey) || '';
 
 form.addEventListener('input', event => {
-  const formInputValue = event.target.value.trim();
-  localStorage.setItem(localStorageKey, formInputValue);
+  const emailValue = form.elements.email.value.trim();
+  const messageValue = form.elements.message.value.trim();
+  const formUserData = { email: emailValue, message: messageValue };
+  localStorage.setItem(localStorageKey, JSON.stringify(formUserData));
 });
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const inputValue = event.target.elements.email.value.trim();
-  const messageValue = event.target.elements.message.value.trim();
+  const inputValue = form.elements.email.value.trim();
+  const messageValue = form.elements.message.value.trim();
 
-  const FormData = { email: inputValue, message: messageValue };
   if (inputValue !== '' && messageValue !== '') {
-    console.log(FormData);
+    const formUserData = { email: inputValue, message: messageValue };
+    console.log(formUserData);
 
     localStorage.removeItem(localStorageKey);
     form.reset();
   } else {
-    console.log('Please fill all feilds');
+    alert('Please fill all fields');
   }
 });

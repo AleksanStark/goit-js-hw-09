@@ -85,4 +85,7 @@ const markup = images
 
 listOfGallery.insertAdjacentHTML('beforeend', markup);
 
-let lightBox = new simpleLightbox('.gallery-link');
+let lightBox = new simpleLightbox('.gallery-link', {
+  captionDelay: 250,
+  captionData: 'alt',
+});
