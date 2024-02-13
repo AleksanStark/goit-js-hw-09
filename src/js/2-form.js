@@ -8,8 +8,11 @@ form.elements.message.value = localStorage.getItem(localStorageKey) || '';
 form.addEventListener('input', event => {
   const emailValue = form.elements.email.value.trim();
   const messageValue = form.elements.message.value.trim();
-  const formUserData = { email: emailValue, message: messageValue };
-  localStorage.setItem(localStorageKey, JSON.stringify(formUserData));
+  const formUserData = JSON.stringify({
+    email: emailValue,
+    message: messageValue,
+  });
+  localStorage.setItem(localStorageKey, JSON.parse(formUserData));
 });
 
 form.addEventListener('submit', event => {
