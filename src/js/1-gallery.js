@@ -1,4 +1,4 @@
-import simpleLightbox from 'simplelightbox';
+import simpleLightBox from 'simplelightbox';
 
 const images = [
   {
@@ -85,7 +85,7 @@ const markup = images
 
 listOfGallery.insertAdjacentHTML('beforeend', markup);
 
-let lightBox = new simpleLightbox('.gallery-link', {
+let lightBox = new simpleLightBox('.gallery-link', {
   captionDelay: 250,
   captionData: 'alt',
 });
